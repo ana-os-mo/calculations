@@ -21,7 +21,15 @@ public class NamesTest
     {
         var names = new Names();
         Assert.Null(names.NickName);
-        names.NickName = "Nickname";
+    }
+
+    [Fact]
+    public void NickName_MustNotBeNull()
+    {
+        var names = new Names
+        {
+            NickName = "Nickname"
+        };
         Assert.NotNull(names.NickName);
     }
 
@@ -30,6 +38,8 @@ public class NamesTest
     {
         var names = new Names();
         var result = names.MakeFullName("Ana", "Osorio");
+        Assert.NotNull(result);
+        Assert.True(!string.IsNullOrEmpty(result));
         Assert.False(string.IsNullOrEmpty(result));
     }
 }

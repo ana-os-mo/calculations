@@ -1,8 +1,8 @@
 ﻿namespace Calculations.Tests;
 
-public class FiboFixture // : IDisposable
+public class FibonacciFixture // : IDisposable
 {
-    public Fibonacci Fibo => new();
+    public Fibonacci Fibonacci => new();
 
     //public void Dispose()
     //{

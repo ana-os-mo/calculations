@@ -3,57 +3,57 @@
 using Xunit;
 using Xunit.Abstractions;
 
-public class FibonacciTest : IClassFixture<FiboFixture>
+public class FibonacciTest : IClassFixture<FibonacciFixture>
 {
-    private readonly FiboFixture _fiboFixture;
+    private readonly FibonacciFixture _fibonacciFixture;
     private readonly ITestOutputHelper _output;
 
-    public FibonacciTest(ITestOutputHelper output, FiboFixture fiboFixture)
+    public FibonacciTest(ITestOutputHelper output, FibonacciFixture fibonacciFixture)
     {
         _output = output;
-        _fiboFixture = fiboFixture;
+        _fibonacciFixture = fibonacciFixture;
         _output.WriteLine("FibonacciTest Constructor");
     }
 
     [Fact]
-    [Trait("Category", "Fibo")]
-    public void Fibo_DoesNotIncludeZero()
+    [Trait("Category", "Fibonacci")]
+    public void Fibonacci_DoesNotIncludeZero()
     {
-        _output.WriteLine("Check if Fibo doesn't include 0");
+        _output.WriteLine("Check if Fibonacci doesn't include 0");
 
-        var fibo = _fiboFixture.Fibo;
-        Assert.All(fibo.FiboNumbers, n => Assert.NotEqual(0, n));
-        Assert.DoesNotContain(0, fibo.FiboNumbers);
+        var fibonacci = _fibonacciFixture.Fibonacci;
+        Assert.All(fibonacci.FibonacciNumbers, n => Assert.NotEqual(0, n));
+        Assert.DoesNotContain(0, fibonacci.FibonacciNumbers);
     }
 
     [Fact]
-    [Trait("Category", "Fibo")]
-    public void Fibo_Includes13()
+    [Trait("Category", "Fibonacci")]
+    public void Fibonacci_Includes13()
     {
-        _output.WriteLine("Check if Fibo includes 13");
+        _output.WriteLine("Check if Fibonacci includes 13");
 
-        var fibo = _fiboFixture.Fibo;
-        Assert.Contains(13, fibo.FiboNumbers);
+        var fibonacci = _fibonacciFixture.Fibonacci;
+        Assert.Contains(13, fibonacci.FibonacciNumbers);
     }
 
     [Fact]
-    [Trait("Category", "Fibo")]
-    public void Fibo_DoesNotInclude4()
+    [Trait("Category", "Fibonacci")]
+    public void Fibonacci_DoesNotInclude4()
     {
-        _output.WriteLine("Check if Fibo doesn't include 4. Test starting at {0}", DateTime.Now);
+        _output.WriteLine("Check if Fibonacci doesn't include 4. Test starting at {0}", DateTime.Now);
 
-        var fibo = _fiboFixture.Fibo;
-        Assert.DoesNotContain(4, fibo.FiboNumbers);
+        var fibonacci = _fibonacciFixture.Fibonacci;
+        Assert.DoesNotContain(4, fibonacci.FibonacciNumbers);
     }
 
     [Fact]
-    [Trait("Category", "Fibo")]
+    [Trait("Category", "Fibonacci")]
     public void CheckCollection()
     {
-        _output.WriteLine("Check Fibo Collection");
+        _output.WriteLine("Check Fibonacci Collection");
 
         var expectedCollection = new List<int> { 1, 1, 2, 3, 5, 8, 13 };
-        var fibo = _fiboFixture.Fibo;
-        Assert.Equal(expectedCollection, fibo.FiboNumbers);
+        var fibo = _fibonacciFixture.Fibonacci;
+        Assert.Equal(expectedCollection, fibo.FibonacciNumbers);
     }
 }
