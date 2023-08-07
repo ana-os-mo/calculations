@@ -2,18 +2,17 @@
 
 public class Customer
 {
-    public int Age => 78;
-
     public virtual int GetOrdersByName(string name)
     {
         if (string.IsNullOrEmpty(name))
         {
-            throw new ArgumentException("Hello");
+            throw new ArgumentException("My exception message");
         }
 
-        // cantidad de ordenes (supuesto)
         return 100;
     }
+
+    public int Age => 78;
 
     public string GetFullName(string firstName, string lastName)
     {

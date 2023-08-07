@@ -5,7 +5,7 @@ using Xunit;
 public class NamesTest
 {
     [Fact]
-    public void MakeFullNameTest()
+    public void MakeFullName_GivenNameAndLastName_ReturnsFullName()
     {
         var names = new Names();
         var result = names.MakeFullName("Ana", "Osorio");

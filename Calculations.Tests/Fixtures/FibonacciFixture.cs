@@ -1,4 +1,4 @@
-﻿namespace Calculations.Tests;
+﻿namespace Calculations.Tests.Fixtures;
 
 public class FibonacciFixture // : IDisposable
 {

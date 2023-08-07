@@ -1,6 +1,7 @@
 ﻿namespace Calculations.Tests.Tests;
 
 using Factory;
+using Fixtures;
 using Xunit;
 
 [Collection("Customer")]
@@ -14,22 +15,22 @@ public class CustomerTest
     }
 
     [Fact]
-    public void GetOrdersByNameNotNull()
+    public void GetOrdersByName_GivenNameIsNull_ThrowsArgumentException()
     {
-        var customer = _customerFixture.Cust;
+        var customer = _customerFixture.Customer;
         var exceptionMessage = Assert.Throws<ArgumentException>(() => customer.GetOrdersByName(null));
-        Assert.Equal("Hello", exceptionMessage.Message);
+        Assert.Equal("My exception message", exceptionMessage.Message);
     }
 
     [Fact]
-    public void CheckLegiForDiscount()
+    public void CheckAgeForDiscount_GivenAValidAge_ShouldAllowDiscount()
     {
-        var customer = _customerFixture.Cust;
+        var customer = _customerFixture.Customer;
         Assert.InRange(customer.Age, 50, 80);
     }
 
     [Fact]
-    public void LoyalCustomerForOrdersGreater100()
+    public void CreateLoyalCustomer_GivenOrderGreater100_ReturnsLoyalCustomer()
     {
         var customer = CustomerFactory.CreateCustomerInstance(102);
         var loyalCustomer = Assert.IsType<LoyalCustomer>(customer);

@@ -1,5 +1,6 @@
 ﻿namespace Calculations.Tests.Tests;
 
+using Fixtures;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -12,7 +13,7 @@ public class CalculatorTest : IClassFixture<CalculatorFixture>
     {
         _output = output;
         _calculatorFixture = calculatorFixture;
-        _output.WriteLine("CalculatorTest Constructor");
+        _output.WriteLine("CalculatorTest Constructor is being executed");
     }
 
     [Fact]
@@ -20,7 +21,7 @@ public class CalculatorTest : IClassFixture<CalculatorFixture>
     public void Add_GivenTwoIntValues_ReturnsInt()
     {
         // Assert
-        var calc = _calculatorFixture.Calc;
+        var calc = _calculatorFixture.Calculator;
         var result = calc.Add(1, 2);
         Assert.Equal(3, result);
     }
@@ -29,7 +30,7 @@ public class CalculatorTest : IClassFixture<CalculatorFixture>
     [Trait("Category", "Calc")]
     public void AddDouble_GivenTwoDoubleValues_ReturnsDouble()
     {
-        var calc = _calculatorFixture.Calc;
+        var calc = _calculatorFixture.Calculator;
         var result = calc.AddDouble(1.23, 3.57);
         Assert.Equal(4.7, result, 0);
     }

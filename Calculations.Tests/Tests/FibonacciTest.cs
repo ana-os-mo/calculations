@@ -1,5 +1,6 @@
 ﻿namespace Calculations.Tests.Tests;
 
+using Fixtures;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -12,7 +13,7 @@ public class FibonacciTest : IClassFixture<FibonacciFixture>
     {
         _output = output;
         _fibonacciFixture = fibonacciFixture;
-        _output.WriteLine("FibonacciTest Constructor");
+        _output.WriteLine("FibonacciTest Constructor is being executed");
     }
 
     [Fact]
@@ -48,12 +49,12 @@ public class FibonacciTest : IClassFixture<FibonacciFixture>
 
     [Fact]
     [Trait("Category", "Fibonacci")]
-    public void CheckCollection()
+    public void CheckCollectionContent()
     {
         _output.WriteLine("Check Fibonacci Collection");
 
         var expectedCollection = new List<int> { 1, 1, 2, 3, 5, 8, 13 };
-        var fibo = _fibonacciFixture.Fibonacci;
-        Assert.Equal(expectedCollection, fibo.FibonacciNumbers);
+        var fibonacci = _fibonacciFixture.Fibonacci;
+        Assert.Equal(expectedCollection, fibonacci.FibonacciNumbers);
     }
 }
